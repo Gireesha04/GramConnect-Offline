@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GramConnect Offline</title>
+</head>
+
+<body>
+
+    <h1>🌾 GramConnect Offline</h1>
+
+    <p>
+        Knowledge and information without depending on the internet.
+    </p>
+
+    <form action="/search" method="get">
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search education, agriculture, health..."
+        >
+
+        <button type="submit">Search</button>
+
+    </form>
+
+    <hr>
+
+    {% for item in content %}
+
+        <h2>{{ item.title }}</h2>
+
+        <p><b>Category:</b> {{ item.category }}</p>
+
+        <p>{{ item.content }}</p>
+
+        <hr>
+
+    {% endfor %}
+
+</body>
+</html>
