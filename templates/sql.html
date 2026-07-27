@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>SQL & Databases | GramConnect Offline</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f4f7f5;
+        color: #1f2937;
+    }
+
+    header {
+        background: #14532d;
+        color: white;
+        padding: 30px 8%;
+    }
+
+    header h1 {
+        margin-bottom: 8px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 30px auto;
+    }
+
+    .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #14532d;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .intro,
+    .topic {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .topic h2 {
+        color: #14532d;
+        margin-bottom: 15px;
+    }
+
+    .topic p {
+        line-height: 1.7;
+        margin-bottom: 12px;
+    }
+
+    pre {
+        background: #1f2937;
+        color: white;
+        padding: 18px;
+        border-radius: 10px;
+        overflow-x: auto;
+        margin-top: 10px;
+    }
+
+    .practice {
+        background: #ecfdf5;
+        border-left: 5px solid #14532d;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 8px;
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 20px;
+        background: #14532d;
+        color: white;
+        text-align: center;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<header>
+    <h1>🗄️ SQL & Databases</h1>
+    <p>Learn SQL step-by-step with offline notes, examples and practice.</p>
+</header>
+
+<div class="container">
+
+```
+<a href="/" class="back">← Back to GramConnect</a>
+
+<div class="intro">
+    <h2>📚 About This Course</h2>
+
+    <p>
+        SQL stands for Structured Query Language. It is used to
+        communicate with and manage data stored in relational databases.
+    </p>
+
+    <p>
+        This course covers SQL basics, filtering, sorting, grouping,
+        joins and advanced queries.
+    </p>
+</div>
+
+
+<div class="topic">
+    <h2>1. Introduction to SQL</h2>
+
+    <p>
+        SQL is used to create, read, update and delete data in databases.
+        These operations are commonly called CRUD operations.
+    </p>
+
+    <h3>Example:</h3>
+
+    <pre>
+```
+
+SELECT * FROM employees; </pre>
+
+```
+    <div class="practice">
+        <b>📝 Practice:</b>
+        Write a query to display all records from a table named students.
+    </div>
+</div>
+
+
+<div class="topic">
+    <h2>2. SELECT Statement</h2>
+
+    <p>
+        The SELECT statement is used to retrieve data from a database table.
+    </p>
+
+    <h3>Example:</h3>
+
+    <pre>
+```
+
+SELECT name, salary
+FROM employees; </pre>
+
+```
+    <div class="practice">
+        <b>📝 Practice:</b>
+        Display the name and department of all employees.
+    </div>
+</div>
+
+
+<div class="topic">
+    <h2>3. WHERE Clause</h2>
+
+    <p>
+        The WHERE clause is used to filter records based on a condition.
+    </p>
+
+    <h3>Example:</h3>
+
+    <pre>
+```
+
+SELECT *
+FROM employees
+WHERE salary > 50000; </pre>
+
+```
+    <div class="practice">
+        <b>📝 Practice:</b>
+        Find all employees whose salary is greater than 40000.
+    </div>
+</div>
+
+
+<div class="topic">
+    <h2>4. ORDER BY</h2>
+
+    <p>
+        ORDER BY is used to sort the result in ascending or descending order.
+    </p>
+
+    <h3>Example:</h3>
+
+    <pre>
+```
+
+SELECT *
+FROM employees
+ORDER BY salary DESC; </pre>
+
+```
+    <div class="practice">
+        <b>📝 Practice:</b>
+        Display employees sorted by their names in ascending order.
+    </div>
+</div>
+
+
+<div class="topic">
+    <h2>5. GROUP BY</h2>
+
+    <p>
+        GROUP BY is used to group rows that have the same values.
+        It is commonly used with aggregate functions.
+    </p>
+
+    <h3>Example:</h3>
+
+    <pre>
+```
+
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department; </pre>
+
+```
+    <div class="practice">
+        <b>📝 Practice:</b>
+        Count how many employees are present in each department.
+    </div>
+</div>
+
+
+<div class="topic">
+    <h2>6. SQL JOINS</h2>
+
+    <p>
+        Joins are used to combine data from multiple tables.
+        Common joins include INNER JOIN, LEFT JOIN, RIGHT JOIN and FULL JOIN.
+    </p>
+
+    <h3>Example:</h3>
+
+    <pre>
+```
+
+SELECT
+e.name AS employee_name,
+m.name AS manager_name
+FROM employee AS e
+LEFT JOIN employee AS m
+ON e.manager_id = m.employee_id; </pre>
+
+```
+    <div class="practice">
+        <b>📝 Practice:</b>
+        Write a query to display employees and their managers using a self join.
+    </div>
+</div>
+
+
+<div class="topic">
+    <h2>7. Aggregate Functions</h2>
+
+    <p>
+        Aggregate functions perform calculations on multiple rows.
+        Common functions include COUNT, SUM, AVG, MIN and MAX.
+    </p>
+
+    <h3>Example:</h3>
+
+    <pre>
+```
+
+SELECT AVG(salary)
+FROM employees; </pre>
+
+```
+    <div class="practice">
+        <b>📝 Practice:</b>
+        Find the highest salary from the employees table.
+    </div>
+</div>
+
+
+<div class="topic">
+    <h2>8. Subqueries</h2>
+
+    <p>
+        A subquery is a query written inside another SQL query.
+    </p>
+
+    <h3>Example:</h3>
+
+    <pre>
+```
+
+SELECT name, salary
+FROM employees
+WHERE salary > (
+SELECT AVG(salary)
+FROM employees
+); </pre>
+
+```
+    <div class="practice">
+        <b>📝 Practice:</b>
+        Find employees whose salary is greater than the average salary.
+    </div>
+</div>
+
+
+<div class="topic">
+    <h2>9. SQL Practice Challenge</h2>
+
+    <p>
+        Create an employee table and practice SELECT, WHERE, ORDER BY,
+        GROUP BY and JOIN queries.
+    </p>
+
+    <div class="practice">
+        <b>🎯 Challenge:</b>
+        Create two related tables and write a query using LEFT JOIN
+        to display all records from the first table.
+    </div>
+</div>
+```
+
+</div>
+
+<footer>
+    <p>🗄️ SQL & Databases | GramConnect Offline</p>
+    <p>Learn Anywhere. Learn Offline.</p>
+</footer>
+
+</body>
+</html>
