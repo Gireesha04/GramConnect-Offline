@@ -1,42 +1,257 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
-    <title>GramConnect Offline</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GramConnect Offline</title>
 
-<body>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
 
+    body {
+        background: #f4f7f5;
+        color: #1f2937;
+    }
+
+    header {
+        background: #14532d;
+        color: white;
+        padding: 25px 8%;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 30px auto;
+    }
+
+    .search-box {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .search-box h2 {
+        margin-bottom: 15px;
+    }
+
+    .search-form {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .search-form input {
+        width: 70%;
+        padding: 14px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .search-form button {
+        padding: 14px 25px;
+        border: none;
+        border-radius: 8px;
+        background: #14532d;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .section-title {
+        margin: 35px 0 20px;
+        text-align: center;
+    }
+
+    .courses {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .course-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .course-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .course-card .icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .course-card h3 {
+        margin-bottom: 10px;
+    }
+
+    .course-card p {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .course-card a {
+        display: inline-block;
+        padding: 10px 18px;
+        background: #14532d;
+        color: white;
+        text-decoration: none;
+        border-radius: 7px;
+    }
+
+    .info-section {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .info-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    footer {
+        margin-top: 50px;
+        padding: 20px;
+        background: #14532d;
+        color: white;
+        text-align: center;
+    }
+
+    @media (max-width: 600px) {
+        .search-form {
+            flex-direction: column;
+        }
+
+        .search-form input {
+            width: 100%;
+        }
+
+        .search-form button {
+            width: 100%;
+        }
+    }
+</style>
+
+</head><body><header>
     <h1>🌾 GramConnect Offline</h1>
+    <p>Learn. Grow. Connect — Even Without Internet.</p>
+</header><div class="container"><div class="search-box">
+    <h2>🔍 Search Offline Knowledge</h2>
 
-    <p>
-        Knowledge and information without depending on the internet.
-    </p>
-
-    <form action="/search" method="get">
+    <form action="/search" method="get" class="search-form">
 
         <input
             type="text"
             name="q"
-            placeholder="Search education, agriculture, health..."
+            placeholder="Search Python, agriculture, education..."
+            required
         >
 
         <button type="submit">Search</button>
 
     </form>
+</div>
 
-    <hr>
 
-    {% for item in content %}
+<h2 class="section-title">📚 Offline Learning Courses</h2>
 
-        <h2>{{ item.title }}</h2>
+<div class="courses">
 
-        <p><b>Category:</b> {{ item.category }}</p>
+    <div class="course-card">
+        <div class="icon">🐍</div>
+        <h3>Python Programming</h3>
+        <p>Learn Python from basics with notes, examples and practice.</p>
+        <a href="/course/python">Start Learning</a>
+    </div>
 
-        <p>{{ item.content }}</p>
+    <div class="course-card">
+        <div class="icon">🗄️</div>
+        <h3>SQL & Databases</h3>
+        <p>Learn SQL queries, databases, joins and practical examples.</p>
+        <a href="/course/sql">Start Learning</a>
+    </div>
 
-        <hr>
+    <div class="course-card">
+        <div class="icon">💻</div>
+        <h3>Computer Basics</h3>
+        <p>Understand computers, hardware, software and digital skills.</p>
+        <a href="/course/computer">Start Learning</a>
+    </div>
 
-    {% endfor %}
+    <div class="course-card">
+        <div class="icon">📊</div>
+        <h3>MS Excel</h3>
+        <p>Learn spreadsheets, formulas, functions and data management.</p>
+        <a href="/course/excel">Start Learning</a>
+    </div>
 
-</body>
+    <div class="course-card">
+        <div class="icon">🌐</div>
+        <h3>Digital Literacy</h3>
+        <p>Learn essential digital skills for everyday life and work.</p>
+        <a href="/course/digital-literacy">Start Learning</a>
+    </div>
+
+    <div class="course-card">
+        <div class="icon">🤖</div>
+        <h3>AI Basics</h3>
+        <p>Understand Artificial Intelligence and Machine Learning basics.</p>
+        <a href="/course/ai">Start Learning</a>
+    </div>
+
+</div>
+
+
+<h2 class="section-title">🌾 Community Knowledge</h2>
+
+<div class="info-section">
+
+    <div class="info-card">
+        <h3>🌱 Agriculture</h3>
+        <p>Learn about farming, crops, irrigation, soil and water conservation.</p>
+    </div>
+
+    <div class="info-card">
+        <h3>🏛️ Government Information</h3>
+        <p>Access useful information about education, employment and public services.</p>
+    </div>
+
+    <div class="info-card">
+        <h3>💼 Career Guidance</h3>
+        <p>Explore career paths, technical skills, interview preparation and learning resources.</p>
+    </div>
+
+</div>
+
+</div><footer>
+    <p>🌾 GramConnect Offline | Knowledge for Everyone</p>
+    <p>Designed to support learning in low-connectivity communities.</p>
+</footer></body>
 </html>
