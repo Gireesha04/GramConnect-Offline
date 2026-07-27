@@ -1,13 +1,14 @@
 from flask import Flask, render_template, request
 import csv
 
-app = Flask(name)
+app = Flask(**name**)
 
-Load content from CSV file
+# Load content from CSV file
 
 def load_content():
 content = []
 
+```
 with open("data/content.csv", "r", encoding="utf-8") as file:
     reader = csv.DictReader(file)
 
@@ -15,20 +16,22 @@ with open("data/content.csv", "r", encoding="utf-8") as file:
         content.append(row)
 
 return content
+```
 
-Home Page
+# Home Page
 
 @app.route("/")
 def home():
 content = load_content()
 return render_template("index.html", content=content)
 
-Search
+# Search
 
 @app.route("/search")
 def search():
 query = request.args.get("q", "").lower()
 
+```
 content = load_content()
 
 results = []
@@ -46,14 +49,21 @@ return render_template(
     content=results,
     search_query=query
 )
+```
 
-Python Programming Course
+# Python Programming Course
 
 @app.route("/course/python")
 def python_course():
 return render_template("python.html")
 
-Run the application
+# SQL & Databases Course
 
-if name == "main":
+@app.route("/course/sql")
+def sql_course():
+return render_template("sql.html")
+
+# Run the application
+
+if **name** == "**main**":
 app.run(debug=True)
